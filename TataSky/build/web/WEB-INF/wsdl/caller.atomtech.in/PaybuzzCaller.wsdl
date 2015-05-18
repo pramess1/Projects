@@ -1,0 +1,90 @@
+<definitions name='PaybuzzCaller' targetNamespace='urn:com.atom.ws.paybuzzcaller' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='urn:com.atom.ws.paybuzzcaller.types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='urn:com.atom.ws.paybuzzcaller' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='urn:com.atom.ws.paybuzzcaller.types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='urn:com.atom.ws.paybuzzcaller.types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <complexType name='String.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+  </schema>
+ </types>
+ <message name='PaybuzzCallerService_directCall' xmlns='http://schemas.xmlsoap.org/wsdl/'>
+  <part name='String_1' type='xsd:string'></part>
+  <part name='String_2' type='xsd:string'></part>
+  <part name='String_3' type='xsd:string'></part>
+  <part name='String_4' type='xsd:string'></part>
+  <part name='arrayOfString_5' type='ns1:String.Array'></part>
+ </message>
+ <message name='PaybuzzCallerService_directCallResponse'>
+  <part name='result' type='xsd:string'></part>
+ </message>
+ <message name='PaybuzzCallerService_DemoCallerResponse'>
+  <part name='result' type='xsd:string'></part>
+ </message>
+ <message name='PaybuzzCallerService_DemoCaller'>
+  <part name='String_1' type='xsd:string'></part>
+  <part name='String_2' type='xsd:string'></part>
+  <part name='String_3' type='xsd:string'></part>
+  <part name='String_4' type='xsd:string'></part>
+  <part name='arrayOfString_5' type='ns1:String.Array'></part>
+ </message>
+ <message name='PaybuzzCallerService_CallerResponse'>
+  <part name='result' type='xsd:string'></part>
+ </message>
+ <message name='PaybuzzCallerService_Caller'>
+  <part name='String_1' type='xsd:string'></part>
+  <part name='String_2' type='xsd:string'></part>
+  <part name='String_3' type='xsd:string'></part>
+  <part name='String_4' type='xsd:string'></part>
+  <part name='arrayOfString_5' type='ns1:String.Array'></part>
+ </message>
+ <portType name='PaybuzzCallerService'>
+  <operation name='Caller' parameterOrder='String_1 String_2 String_3 String_4 arrayOfString_5'>
+   <input message='tns:PaybuzzCallerService_Caller'></input>
+   <output message='tns:PaybuzzCallerService_CallerResponse'></output>
+  </operation>
+  <operation name='DemoCaller' parameterOrder='String_1 String_2 String_3 String_4 arrayOfString_5'>
+   <input message='tns:PaybuzzCallerService_DemoCaller'></input>
+   <output message='tns:PaybuzzCallerService_DemoCallerResponse'></output>
+  </operation>
+  <operation name='directCall' parameterOrder='String_1 String_2 String_3 String_4 arrayOfString_5'>
+   <input message='tns:PaybuzzCallerService_directCall'></input>
+   <output message='tns:PaybuzzCallerService_directCallResponse'></output>
+  </operation>
+ </portType>
+ <binding name='PaybuzzCallerServiceBinding' type='tns:PaybuzzCallerService'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='Caller'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </output>
+  </operation>
+  <operation name='DemoCaller'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </output>
+  </operation>
+  <operation name='directCall'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='urn:com.atom.ws.paybuzzcaller' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='PaybuzzCaller'>
+  <port binding='tns:PaybuzzCallerServiceBinding' name='PaybuzzCallerServicePort'>
+   <soap:address location='http://caller.atomtech.in:80/PaybuzzCaller'/>
+  </port>
+ </service>
+</definitions>

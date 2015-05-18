@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <!-- the main logfile appender -->
+  <appender name="logfile"
+		class="org.apache.log4j.RollingFileAppender">
+
+    <param name="file" value="${catalina.home}/logs/composer.log" />
+    <param name="MaxBackupIndex" value="10" />
+    <param name="MaxFileSize" value="2097152" />
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %c{1} [%p] - %m%n" />
+    </layout>
+
+  </appender>
+
+  <logger name="getWebRequest">
+    <level value="DEBUG"/>
+    <appender-ref ref="logfile"/>
+  </logger>
+
+  <logger name="getWebService">
+    <level value="DEBUG"/>
+    <appender-ref ref="logfile"/>
+  </logger>
+
+  <logger name="dbRequest">
+    <level value="DEBUG" />
+    <appender-ref ref="logfile"/>
+  </logger>
+
+  <logger name="dbInputForm">
+    <level value="DEBUG" />
+    <appender-ref ref="logfile"/>
+  </logger>
+  
+  <logger name="recordCapture">
+    <level value="DEBUG" />
+    <appender-ref ref="logfile"/>
+  </logger>
+  
+</log4j:configuration>

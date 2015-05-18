@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tblRules>
+  <Rule action="1,20003" callFlowID="1" code="MS" expr="TIME_GREET_FLAG=='Morning'" priority="1" ruleID="10000" ruleDesc="n" />
+  <Rule action="2,20003" callFlowID="1" code="MS" expr="TIME_GREET_FLAG=='Noon'" priority="1" ruleID="10001" ruleDesc="n"  />
+  <Rule action="3,20003" callFlowID="1" code="MS" expr="TIME_GREET_FLAG=='Evening'" priority="1" ruleID="10002" ruleDesc="n"  />
+
+
+
+  <Rule action="4" callFlowID="2" code="MS" expr="CALLER_TYPE=='RMN' AND BRAND_GREET_FLAG=='N'" priority="1" ruleID="11000" ruleDesc="n"  />	
+  <Rule action="5" callFlowID="3" code="MS" expr="CALLER_TYPE=='RMN' AND SEASONAL_GREET_FLAG=='N'" priority="1" ruleID="12000" ruleDesc="n"  />
+  <Rule action="6" callFlowID="4" code="MS" expr="CALLER_TYPE=='RMN' AND CUSTOM_GREET_FLAG=='N'" priority="1" ruleID="13000" ruleDesc="n"  />
+
+
+
+
+<Rule action="1" callFlowID="21" code="R" expr="ACCOUNT_STATUS=='Cancelled'" priority="1" ruleID="15001" ruleDesc="n"  /> 
+<Rule action="1" callFlowID="21" code="R" expr="ACCOUNT_STATUS=='Blacklisted'" priority="1" ruleID="15002" ruleDesc="Blacklisted Account"  />   
+<Rule action="1" callFlowID="21" code="R" expr="ACCOUNT_STATUS=='WrittenOff'" priority="1" ruleID="15003" ruleDesc="n"  /> 
+<Rule action="1" callFlowID="21" code="R" expr="ACCOUNT_STATUS=='Cancel-Pending'" priority="1" ruleID="15004" ruleDesc="n"  /> 
+<Rule action="1" callFlowID="21" code="R" expr="ACCOUNT_STATUS=='Temp Suspension'" priority="1" ruleID="15005" ruleDesc="n"  /> 
+
+
+<Rule action="1401,909,910" callFlowID="22" code="MS" expr="ACCOUNT_STATUS=='Active' AND CAMPAIGN_FLAG=='Y' AND CAMPAIGN_CODE=='Camp1'" priority="1" ruleID="20100" ruleDesc="n"/>
+<Rule action="1402,909,910" callFlowID="22" code="MS" expr="ACCOUNT_STATUS=='Active' AND CAMPAIGN_FLAG=='Y' AND CAMPAIGN_CODE=='Camp2'" priority="2" ruleID="20101" ruleDesc="n"/>
+<Rule action="1403,909,910" callFlowID="22" code="MS" expr="ACCOUNT_STATUS=='Active' AND CAMPAIGN_FLAG=='Y' AND CAMPAIGN_CODE=='Camp2'" priority="3" ruleID="20102" ruleDesc="n"/>
+
+ 
+<Rule action="28,29,36,38,909,910" callFlowID="24" code="MS" expr="ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned'" priority="1" ruleID="40001" ruleDesc="n"/>  
+<Rule action="28,30,31,32,909,910" callFlowID="24" code="MS" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND SUBSCRIPTION_TYPE=='Monthly' AND RECHARGE_DUE_DATE LT 7 AND RECHARGE_DUE_DATE GT 0" priority="1" ruleID="40002" ruleDesc="n" />
+<Rule action="28,33,32,909,910" callFlowID="24" code="MS" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND SUBSCRIPTION_TYPE=='FDP' AND RECHARGE_DUE_DATE LT 90 AND RECHARGE_DUE_DATE GT 0" priority="1" ruleID="40003" ruleDesc="n" />
+<Rule action="34,35,36,38,909,910" callFlowID="24" code="MS" expr="ACCOUNT_STATUS=='Deactivated' AND PREMIUM_FLAG=='N'" priority="1" ruleID="40004" ruleDesc="n"/>
+<Rule action="28,29,909,910" callFlowID="24" code="MS" expr="ACCOUNT_STATUS=='Active' AND SUBSCRIPTION_TYPE=='Monthly'" priority="5" ruleID="40001" ruleDesc="n"/>
+
+
+
+
+<Rule action="42,906,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned'" priority="1" ruleID="50001" ruleDesc="n" ></Rule>
+<Rule action="1000,39,9000,400,700,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Active'" priority="1" ruleID="50002" ruleDesc="n" ></Rule>
+<Rule action="1000,42,9001,9002,906,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Active'" priority="1" ruleID="50003" ruleDesc="n" ></Rule>
+<Rule action="1000,39,9000,400,700,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND ACCOUNT_STATUS=='Active'" priority="3" ruleID="50004" ruleDesc="n" ></Rule>
+<Rule action="42,906,907" callFlowID="25" code="M" expr="ACCOUNT_STATUS=='Deactivated'" priority="10" ruleID="50005" ruleDesc="n" ></Rule>
+<Rule action="42,53,802,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Pending'" priority="1" ruleID="50006" ruleDesc="n" ></Rule>
+<Rule action="42,53,802,907" callFlowID="25" code="M" expr="CALLER_TYPE=='RMN' AND PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Pending'" priority="1" ruleID="50007" ruleDesc="n" ></Rule>  
+<Rule action="42,53,802,907" callFlowID="25" code="M" expr="ACCOUNT_STATUS=='Pending'" priority="1" ruleID="50007" ruleDesc="n" ></Rule>  
+<Rule action="51,52,53,802,42,907" callFlowID="25" code="M" expr="CALLER_TYPE=='NonRMN'" priority="1" ruleID="50008" ruleDesc="n" ></Rule>
+
+
+
+
+
+<Rule ruleID="60001" expr="ACCOUNT_STATUS=='Pending'" action="905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" /> 
+<Rule ruleID="60002" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Deactivated' AND SUBSCRIBER_ID_COUNT GT '1'" action="200,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+<Rule ruleID="60003" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Deactivated'" action="905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+<Rule ruleID="60004" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Deactivated' AND SUBSCRIBER_ID_COUNT GT '1'" action="200,9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	  <Rule ruleID="60005" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Deactivated'" action="9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	 
+	  <Rule ruleID="60006" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned' AND SUBSCRIBER_ID_COUNT GT '1'" action="200,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	  <Rule ruleID="60007" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned'" action="905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" /> 
+	  <Rule ruleID="60008" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned'  AND SUBSCRIBER_ID_COUNT GT '1'" action="200,9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	  <Rule ruleID="60009" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Active' AND ACCOUNT_SUB_STATUS=='Partially Dunned'" action="9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	
+         <Rule ruleID="60010" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Active' AND SUBSCRIBER_ID_COUNT GT '1'" action="200,9000,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n"  />
+         <Rule ruleID="60011" expr="PREMIUM_FLAG=='N' AND ACCOUNT_STATUS=='Active'" action="9000,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	  <Rule ruleID="60012" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Active' AND SUBSCRIBER_ID_COUNT GT '1'" action="200,9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+	  <Rule ruleID="60013" expr="PREMIUM_FLAG=='Y' AND ACCOUNT_STATUS=='Active'" action="9002,905,904,907,906" code="M" callFlowID="231" priority="1" ruleDesc="n" />
+
+  
+  
+   <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='Standard' AND SUBSCRIPTION_TYPE=='Monthly'" priority="1" ruleID="70000" ruleDesc="n" >
+  </Rule>
+  <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='Standard' AND SUBSCRIPTION_TYPE=='FDP'" priority="1" ruleID="70001" ruleDesc="n" >
+  </Rule>
+  <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='HD' AND SUBSCRIPTION_TYPE=='Monthly'" priority="1" ruleID="70002" ruleDesc="n" >
+  </Rule>
+  <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='HD' AND SUBSCRIPTION_TYPE=='FDP'" priority="1" ruleID="70003" ruleDesc="n" >
+  </Rule>
+  <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='PVR' AND SUBSCRIPTION_TYPE=='Monthly'" priority="1" ruleID="70004" ruleDesc="n" >
+  </Rule>
+  <Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active' AND PREMIUM_FLAG=='N' AND STB_TYPE=='HDPVR' AND SUBSCRIPTION_TYPE=='FDP'" priority="1" ruleID="70005" ruleDesc="n" >
+  </Rule>
+<Rule action="801,802,803,804,907,904,906" callFlowID="800" code="M" expr="ACCOUNT_STATUS=='Active'" priority="2" ruleID="70005" ruleDesc="n" ></Rule>
+
+
+  
+  <Rule action="1001,1002,907,904,906" callFlowID="1000" code="M" expr="ACCOUNT_STATUS=='Active' AND STB_TYPE=='Standard'" priority="1" ruleID="80000" ruleDesc="n" >
+  </Rule>
+  <Rule action="1001,1002,907,904,906" callFlowID="1000" code="M" expr="ACCOUNT_STATUS=='Active' AND STB_TYPE=='HD'" priority="1" ruleID="80001" ruleDesc="n" >
+  </Rule>
+  <Rule action="1001,1002,907,904,906" callFlowID="1000" code="M" expr="ACCOUNT_STATUS=='Active' AND STB_TYPE=='PVR'" priority="1" ruleID="80002" ruleDesc="n" >
+  </Rule>
+</tblRules>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ejbs" xmlns:impl="http://ejbs" xmlns:intf="http://ejbs" xmlns:tns2="http://dto.accountbalance.eai.tsky.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema targetNamespace="http://dto.accountbalance.eai.tsky.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <complexType name="AccountBalanceInputDTO">
+    <sequence>
+     <element name="subscriberNo" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="AccountBalanceOutputDTO">
+    <sequence>
+     <element name="currentConsumption" type="xsd:double"/>
+     <element name="rechargeEstVas" type="xsd:double"/>
+     <element name="rechargeEstWOVas" type="xsd:double"/>
+     <element name="suggestedLDPPack" nillable="true" type="xsd:string"/>
+     <element name="errorCode" nillable="true" type="xsd:string"/>
+     <element name="errorMsg" nillable="true" type="xsd:string"/>
+     <element name="currentBalance" type="xsd:double"/>
+     <element name="endDate" nillable="true" type="xsd:string"/>
+     <element name="primaryBurnRate" type="xsd:double"/>
+     <element name="totalBurnRate" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="MissCallNrcDTO">
+    <sequence>
+     <element name="kenanRef" nillable="true" type="xsd:string"/>
+     <element name="rate" type="xsd:double"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+     <element name="subscriberNo" nillable="true" type="xsd:string"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+    <schema targetNamespace="http://ejbs" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://dto.accountbalance.eai.tsky.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dto.accountbalance.eai.tsky.com"/>
+   <element name="getBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceReturn" nillable="true" type="tns2:AccountBalanceOutputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="invokeKenanNRC">
+    <complexType>
+     <sequence>
+      <element name="mcndto" nillable="true" type="tns2:MissCallNrcDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="invokeKenanNRCResponse">
+    <complexType>
+     <sequence>
+      <element name="invokeKenanNRCReturn" nillable="true" type="tns2:MissCallNrcDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSuspendedDBR">
+    <complexType>
+     <sequence>
+      <element name="inputData" nillable="true" type="tns2:AccountBalanceInputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSuspendedDBRResponse">
+    <complexType>
+     <sequence>
+      <element name="getSuspendedDBRReturn" nillable="true" type="tns2:AccountBalanceOutputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDailyBurnRate">
+    <complexType>
+     <sequence>
+      <element name="accountBalanceInputDTO" nillable="true" type="tns2:AccountBalanceInputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDailyBurnRateResponse">
+    <complexType>
+     <sequence>
+      <element name="getDailyBurnRateReturn" nillable="true" type="tns2:AccountBalanceOutputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalanceAndDBR">
+    <complexType>
+     <sequence>
+      <element name="accountBalanceInputDTO" nillable="true" type="tns2:AccountBalanceInputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalanceAndDBRResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceAndDBRReturn" nillable="true" type="tns2:AccountBalanceOutputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalance">
+    <complexType>
+     <sequence>
+      <element name="accountBalanceInputDTO" nillable="true" type="tns2:AccountBalanceInputDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  </wsdl:types>
+  <wsdl:message name="getBalanceResponse">
+    <wsdl:part element="impl:getBalanceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="invokeKenanNRCResponse">
+    <wsdl:part element="impl:invokeKenanNRCResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceRequest">
+    <wsdl:part element="impl:getBalance" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDailyBurnRateRequest">
+    <wsdl:part element="impl:getDailyBurnRate" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSuspendedDBRResponse">
+    <wsdl:part element="impl:getSuspendedDBRResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="invokeKenanNRCRequest">
+    <wsdl:part element="impl:invokeKenanNRC" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceAndDBRResponse">
+    <wsdl:part element="impl:getBalanceAndDBRResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSuspendedDBRRequest">
+    <wsdl:part element="impl:getSuspendedDBR" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceAndDBRRequest">
+    <wsdl:part element="impl:getBalanceAndDBR" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDailyBurnRateResponse">
+    <wsdl:part element="impl:getDailyBurnRateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AccountBalance">
+    <wsdl:operation name="getBalance">
+      <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invokeKenanNRC">
+      <wsdl:input message="impl:invokeKenanNRCRequest" name="invokeKenanNRCRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:invokeKenanNRCResponse" name="invokeKenanNRCResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSuspendedDBR">
+      <wsdl:input message="impl:getSuspendedDBRRequest" name="getSuspendedDBRRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:getSuspendedDBRResponse" name="getSuspendedDBRResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDailyBurnRate">
+      <wsdl:input message="impl:getDailyBurnRateRequest" name="getDailyBurnRateRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:getDailyBurnRateResponse" name="getDailyBurnRateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalanceAndDBR">
+      <wsdl:input message="impl:getBalanceAndDBRRequest" name="getBalanceAndDBRRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:getBalanceAndDBRResponse" name="getBalanceAndDBRResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountBalanceSoapBinding" type="impl:AccountBalance">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBalance">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBalanceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBalanceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invokeKenanNRC">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="invokeKenanNRCRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="invokeKenanNRCResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSuspendedDBR">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSuspendedDBRRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSuspendedDBRResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDailyBurnRate">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDailyBurnRateRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDailyBurnRateResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalanceAndDBR">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBalanceAndDBRRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBalanceAndDBRResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountBalanceService">
+    <wsdl:port binding="impl:AccountBalanceSoapBinding" name="AccountBalance">
+      <wsdlsoap:address location="http://10.1.18.140:80/ACRouterProject/services/AccountBalance"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

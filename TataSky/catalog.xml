@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://caller.atomtech.in/PaybuzzCaller?wsdl" uri="src/conf/xml-resources/web-service-references/PaybuzzCaller/wsdl/caller.atomtech.in/PaybuzzCaller.wsdl"/>
+    <system systemId="http://10.30.0.75:8080/WOCreation/WOCreationWs?wsdl" uri="src/conf/xml-resources/web-service-references/WOCreationWs/wsdl/10.30.0.75_8080/WOCreation/WOCreationWs.wsdl"/>
+    <system systemId="http://10.30.0.75:8080/WOCreation/WOCreationWs?xsd=1" uri="src/conf/xml-resources/web-service-references/WOCreationWs/wsdl/10.30.0.75_8080/WOCreation/WOCreationWs.xsd_1.xsd"/>
+    <system systemId="http://10.1.18.140/ACRouterProject/services/AccountBalance/wsdl/AccountBalance.wsdl" uri="src/conf/xml-resources/web-service-references/AccountBalance/wsdl/10.1.18.140/ACRouterProject/services/AccountBalance/wsdl/AccountBalance.wsdl"/>
+</catalog>
